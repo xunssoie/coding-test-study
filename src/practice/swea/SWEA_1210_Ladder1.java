@@ -7,7 +7,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class SEWA_1210_Ladder1 {
+public class SWEA_1210_Ladder1 {
 
     public static final int SIZE = 100;
 

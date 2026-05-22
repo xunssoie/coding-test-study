@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class SWEA_1247_최적_경로 {
+public class SWEA_1247_최적_경로_V1 {
 
     public static int N;
     public static int[][] pts;
