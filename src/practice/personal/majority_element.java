@@ -3,7 +3,7 @@ package practice.personal;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MajorityElement {
+public class majority_element {
     public static void main(String[] args) {
         System.out.println(solution(new int[]{3,2,3}));
         System.out.println(solution(new int[]{2,2,1,1,1,2,2}));

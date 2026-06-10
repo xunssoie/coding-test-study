@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-public class CustomSorting {
+public class custom_sorting {
 
     public static void main(String[] args) {
         List<Student> students = new ArrayList<>();

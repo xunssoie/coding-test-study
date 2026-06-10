@@ -3,7 +3,7 @@ package practice.personal;
 import java.util.HashSet;
 import java.util.Set;
 
-public class MaxUniqueTypes {
+public class max_unique_types {
     public static void main(String[] args) {
         System.out.println(solution(new int[]{3,1,2,3}));
         System.out.println(solution(new int[]{3,3,3,2,2,4}));
