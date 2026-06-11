@@ -29,17 +29,15 @@ public class Programmers_입국_심사{
     }
 
     public static boolean canFinish(int n, long t, int[] times){
-        long sum = 0;
+        long handleableTotal = 0;
         for (int time : times) {
-            sum += t / time;
+            handleableTotal += t / time;
         }
 
-        if (sum >= n){
+        if (handleableTotal >= n){
             return true;
         }else{
             return false;
         }
     }
-
-
 }
