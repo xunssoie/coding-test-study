@@ -10,32 +10,43 @@ public class Programmers_네트워크 {
 
     }
 
-    public static int solution(int n, int[][] computers) {
-        List<List<Integer>> networks = new ArrayList<>();
-        for (int i = 0; i < n; i++) {
-            networks.add(new ArrayList<>());
+    public static int solution(
+            int n,
+            int[][] computers
+    ) {
+        List<List<Integer>> adjLists = new ArrayList<>();
+
+        for(int i = 0; i < n; i++){
+            adjLists.add(i, new ArrayList<>());
         }
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                if (j != i && computers[i][j] == 1) {
-                    networks.get(i).add(j);
+
+        for(int i = 0; i < n; i++){
+            int[] connected = computers[i];
+            List<Integer> adjList = adjLists.get(i);
+            for(int j = 0; j < n; j ++){
+                if(j != i && connected[j] == 1){
+                    adjList.add(j);
                 }
             }
         }
 
-        int answer = 0;
         boolean[] visited = new boolean[n];
-        for (int i = 0; i < n; i++) {
-            if (visited[i]) continue;
+        Queue<Integer> queue = new ArrayDeque<>();
+        int answer = 0;
 
-            Queue<Integer> queue = new ArrayDeque<>();
+        for(int i = 0; i < n; i++){
+            if(visited[i])
+                continue;
+
             visited[i] = true;
             queue.offer(i);
 
-            while (!queue.isEmpty()) {
-                int cur = queue.poll();
-                for (int next : networks.get(cur)) {
-                    if (!visited[next]) {
+            while(!queue.isEmpty()){
+                Integer cur = queue.poll();
+
+                List<Integer> nexts = adjLists.get(cur);
+                for (Integer next : nexts) {
+                    if(!visited[next]){
                         visited[next] = true;
                         queue.offer(next);
                     }
