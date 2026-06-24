@@ -7,10 +7,10 @@ import java.util.List;
 public class Programmers_기능개발 {
     public static void main(String[] args) {
         // 예제 1 → [2, 1]
-        System.out.println("answer = " + Arrays.toString(
+        System.out.println("depth = " + Arrays.toString(
                 solution(new int[]{93, 30, 55}, new int[]{1, 30, 5})));
         // 예제 2 → [1, 3, 2]
-        System.out.println("answer = " + Arrays.toString(
+        System.out.println("depth = " + Arrays.toString(
                 solution(new int[]{95, 90, 99, 99, 80, 99}, new int[]{1, 1, 1, 1, 1, 1})));
     }
 

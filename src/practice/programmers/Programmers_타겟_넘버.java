@@ -9,7 +9,7 @@ public class Programmers_타겟_넘버 {
     static void solution(int[] numbers, int target) {
         int answer = recursive(numbers, 0, 0, target);
 
-        System.out.println("answer = " + answer);
+        System.out.println("depth = " + answer);
     }
 
     static int recursive(int[] numbers, int depth, int sum, int target) {

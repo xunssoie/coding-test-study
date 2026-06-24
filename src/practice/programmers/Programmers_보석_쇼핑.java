@@ -8,8 +8,8 @@ import java.util.Set;
 
 public class Programmers_보석_쇼핑 {
     public static void main(String[] args) {
-        System.out.println("answer= " + Arrays.toString(solution(new String[]{"DIA", "RUBY", "RUBY", "DIA", "DIA", "EMERALD", "SAPPHIRE", "DIA"})));
-        System.out.println("answer= " + Arrays.toString(solution(new String[]{"XYZ", "XYZ", "XYZ"})));
+        System.out.println("depth= " + Arrays.toString(solution(new String[]{"DIA", "RUBY", "RUBY", "DIA", "DIA", "EMERALD", "SAPPHIRE", "DIA"})));
+        System.out.println("depth= " + Arrays.toString(solution(new String[]{"XYZ", "XYZ", "XYZ"})));
     }
 
     public static int[] solution(String[] gems) {

@@ -4,7 +4,7 @@ import java.io.IOException;
 
 public class Programmers_정수_삼각형 {
     public static void main(String[] args) throws IOException {
-        System.out.println("answer = " + solution(new int[][]{{7}, {3, 8}, {8, 1, 0}, {2, 7, 4, 4}, {4, 5, 2, 6, 5}}));
+        System.out.println("depth = " + solution(new int[][]{{7}, {3, 8}, {8, 1, 0}, {2, 7, 4, 4}, {4, 5, 2, 6, 5}}));
     }
 
     public static int solution(int[][] triangle) {
