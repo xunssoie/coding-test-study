@@ -4,9 +4,8 @@ public class Programmers_N_Queen {
     public static void main(String[] args) {
 
     }
-
     int n;
-    int answer;
+    int answer = 0;
     boolean[] cols;
     boolean[] digs1;
     boolean[] digs2;
@@ -25,6 +24,7 @@ public class Programmers_N_Queen {
             answer++;
             return;
         }
+
         for(int col = 0; col < n; col++){
             int d1 = row - col + n - 1;
             int d2 = row + col;
