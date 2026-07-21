@@ -3,7 +3,7 @@ package practice.programmers;
 import java.util.Arrays;
 import java.util.Comparator;
 
-public class Programmers_섬_연결하기 {
+public class Programmers_섬_연결하기_크루스칼 {
     int[] parent;
     int[] rank;
 
