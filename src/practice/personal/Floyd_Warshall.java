@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
-public class floyd_warshall {
+public class Floyd_Warshall {
     static final int INF = 1_000_000_000;
 
     public static void main(String[] args) throws IOException {
