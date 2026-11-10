@@ -2,71 +2,60 @@ package practice.swea.d3;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.StringTokenizer;
 
 public class SWEA_1206_View {
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringBuilder sb = new StringBuilder();
 
-        for (int t = 1; t <= 10; t++) {
-            int n = Integer.parseInt(br.readLine());
-            String line = br.readLine();
+        StringBuilder answer = new StringBuilder();
+        for(int t = 1; t <= 10; t++){
+            int N = Integer.parseInt(br.readLine());
 
-            StringTokenizer st = new StringTokenizer(line);
-            List<Integer> buildings = new ArrayList<>();
+            StringTokenizer st = new StringTokenizer(br.readLine());
 
-            for (int i = 0; i < n; i++) {
-                buildings.add(Integer.parseInt(st.nextToken()));
+            int[] buildings = new int[N];
+            for(int i = 0; i < N; i++){
+                buildings[i] = Integer.parseInt(st.nextToken());
             }
 
-            int totalView = 0;
-            for (int i = 0; i < n; i++) {
-                if (buildings.get(i) == 0)
-                    continue;
+            int sum = 0;
+            for(int i = 0; i < N; i++){
+                int a, b, c, d;
 
-                if (isViewClear(buildings, i)) {
-                    int maxNeighbor = getMaxNeighborHeight(buildings, i);
-                    totalView += buildings.get(i) - maxNeighbor;
+                if(i-2 < 0){
+                    a = 0;
+                }else{
+                    a = buildings[i-2];
+                }
+
+                if(i-1 < 0){
+                    b = 0;
+                }else{
+                    b = buildings[i-1];
+                }
+
+                if(i+1 > N-1){
+                    c = 0;
+                }else{
+                    c = buildings[i+1];
+                }
+
+                if(i+2 > N-1){
+                    d = 0;
+                }else{
+                    d = buildings[i+2];
+                }
+
+                int max = Math.max(Math.max(a, b), Math.max(c, d));
+
+                if(buildings[i] > max){
+                    sum += buildings[i] - max;
                 }
             }
-
-            sb.append("#").append(t).append(" ").append(totalView).append("\n");
+            answer.append("#").append(t).append(" ").append(sum).append("\n");
         }
-        sb.setLength(sb.length() - 1);
-        System.out.print(sb);
-    }
-
-    private static int getMaxNeighborHeight(List<Integer> buildings, int idx) {
-        int start = Math.max(idx - 2, 0);
-        int end = Math.min(idx + 2, buildings.size() - 1);
-
-        int max = buildings.get(start);
-        for (int i = start; i <= end; i++) {
-            if (i == idx)
-                continue;
-
-            if (max < buildings.get(i))
-                max = buildings.get(i);
-        }
-
-        return max;
-    }
-
-    private static boolean isViewClear(List<Integer> buildings, int idx) {
-        int curHeight = buildings.get(idx);
-        int start = Math.max(idx - 2, 0);
-        int end = Math.min(idx + 2, buildings.size() - 1);
-
-        for (int i = start; i <= end; i++) {
-            if (i == idx)
-                continue;
-
-            if (curHeight < buildings.get(i))
-                return false;
-        }
-        return true;
+        answer.setLength(answer.length()-1);
+        System.out.print(answer);
     }
 }
