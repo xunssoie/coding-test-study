@@ -2,53 +2,37 @@ package practice.swea.d3;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class SWEA_1208_Flatten {
-
-    private static final int TEST_CASES = 10;
-    private static final int BOX_COUNT = 100;
-    private static final int MAX_HEIGHT = 100;
-
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringBuilder sb = new StringBuilder();
 
-        for (int tc = 1; tc <= TEST_CASES; tc++) {
-            int dumpCount = Integer.parseInt(br.readLine());
+        StringBuilder answer = new StringBuilder();
+        for(int t = 1; t <= 10; t++){
+            int dump = Integer.parseInt(br.readLine());
 
-            int[] heights = new int[MAX_HEIGHT + 1];
             StringTokenizer st = new StringTokenizer(br.readLine());
 
-            int lowest = MAX_HEIGHT;
-            int highest = 0;
-
-            for (int i = 0; i < BOX_COUNT; i++) {
-                int height = Integer.parseInt(st.nextToken());
-                heights[height]++;
-
-                if (height < lowest) lowest = height;
-                if (height > highest) highest = height;
+            int[] heights = new int[100];
+            for(int i = 0; i < 100; i++){
+                heights[i] = Integer.parseInt(st.nextToken());
             }
 
-            // 덤프 작업 반복: 가장 높은 박스를 한 칸 내리고, 가장 낮은 박스를 한 칸 올린다
-            while (lowest < highest && dumpCount > 0) {
-                heights[highest]--;
-                heights[highest - 1]++;
+            for(int i = 0; i < dump; i++){
+                Arrays.sort(heights);
 
-                heights[lowest]--;
-                heights[lowest + 1]++;
+                if(heights[0] == heights[99])
+                    break;
 
-                dumpCount--;
-
-                // 양 끝 버킷이 비었다면 포인터를 다음 유효 위치로 이동
-                if (heights[lowest] == 0) lowest++;
-                if (heights[highest] == 0) highest--;
+                heights[0]++;
+                heights[99]--;
             }
-
-            sb.append('#').append(tc).append(' ').append(highest - lowest).append('\n');
+            Arrays.sort(heights);
+            answer.append("#").append(t).append(" ").append(heights[99]-heights[0]).append("\n");
         }
-        sb.setLength(sb.length() - 1);
-        System.out.print(sb);
+        answer.setLength(answer.length()-1);
+        System.out.print(answer);
     }
 }
