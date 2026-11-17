@@ -22,20 +22,24 @@ public class SWEA_0_1_Knapsack {
 
             for(int i = 0; i < N; i++){
                 st = new StringTokenizer(br.readLine());
+
                 v[i] = Integer.parseInt(st.nextToken());
                 c[i] = Integer.parseInt(st.nextToken());
             }
 
             int[][] dp = new int[N+1][K+1];
             for(int i = 1; i <= N; i++){
+                int vv = v[i-1];
+                int cv = c[i-1];
+
                 for(int j = 1; j <= K; j++){
-                    int cost = v[i-1];   // 부피
-                    int value = c[i-1];  // 가치
 
                     dp[i][j] = dp[i-1][j];
-
-                    if(j >= cost){
-                        dp[i][j] = Math.max(dp[i][j], dp[i-1][j-cost] + value);
+                    if(j >= vv){
+                        dp[i][j] = Math.max(
+                                dp[i][j],
+                                dp[i-1][j-vv] + cv
+                        );
                     }
                 }
             }
