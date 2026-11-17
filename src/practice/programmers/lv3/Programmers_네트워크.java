@@ -1,59 +1,32 @@
 package practice.programmers.lv3;
 
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Queue;
-
 public class Programmers_네트워크 {
-    public static void main(String[] args) {
+    static boolean[] visited;
+    static int count = 0;
 
+    public static void main(String[] args) {
+        System.out.println(solution(3, new int[][]{{1,1,0},{1,1,1},{0,1,1}}));
     }
 
-    public static int solution(
-            int n,
-            int[][] computers
-    ) {
-        List<List<Integer>> adjLists = new ArrayList<>();
+    public static int solution(int n, int[][] computers) {
+        visited = new boolean[n];
 
         for(int i = 0; i < n; i++){
-            adjLists.add(i, new ArrayList<>());
-        }
-
-        for(int i = 0; i < n; i++){
-            int[] connected = computers[i];
-            List<Integer> adjList = adjLists.get(i);
-            for(int j = 0; j < n; j ++){
-                if(j != i && connected[j] == 1){
-                    adjList.add(j);
-                }
+            if(!visited[i]){
+                dfs(i,computers);
+                count++;
             }
         }
+        return count;
+    }
 
-        boolean[] visited = new boolean[n];
-        Queue<Integer> queue = new ArrayDeque<>();
-        int answer = 0;
-
-        for(int i = 0; i < n; i++){
-            if(visited[i])
-                continue;
-
-            visited[i] = true;
-            queue.offer(i);
-
-            while(!queue.isEmpty()){
-                Integer cur = queue.poll();
-
-                List<Integer> nexts = adjLists.get(cur);
-                for (Integer next : nexts) {
-                    if(!visited[next]){
-                        visited[next] = true;
-                        queue.offer(next);
-                    }
-                }
+    private static void dfs(int node, int[][] computers){
+        visited[node] = true;
+        for(int i = 0; i < computers.length; i++){
+            if(!visited[i] && computers[node][i] == 1){
+                visited[i] = true;
+                dfs(i,computers);
             }
-            answer++;
         }
-        return answer;
     }
 }
