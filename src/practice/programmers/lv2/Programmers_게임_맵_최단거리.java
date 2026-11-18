@@ -27,7 +27,7 @@ public class Programmers_게임_맵_최단거리 {
                 int nextX = curX + dx[i];
                 int nextY = curY + dy[i];
 
-                if ((nextX >= 0 && nextX < n) && (nextY >= 0 && nextY < m) && maps[nextX][nextY] == 1) {
+                if (inRange(nextX, nextY, n, m) && maps[nextX][nextY] == 1) {
                     if (!visited[nextX][nextY]) {
                         if (nextX == n - 1 && nextY == m - 1) {
                             return cur.dist + 1;
@@ -39,6 +39,10 @@ public class Programmers_게임_맵_최단거리 {
             }
         }
         return -1;
+    }
+
+    private boolean inRange(int x, int y, int n, int m){
+        return x >= 0 && x < n && y >= 0 && y < m;
     }
 
     class Path {
