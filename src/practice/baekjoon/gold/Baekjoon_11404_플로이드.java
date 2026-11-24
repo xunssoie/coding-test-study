@@ -1,4 +1,4 @@
-package practice.baekjoon;
+package practice.baekjoon.gold;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
-public class Baekjoon_플로이드_11404 {
+public class Baekjoon_11404_플로이드 {
     public static final int INF = 1_000_000_000;
 
     public static void main(String[] args) throws IOException {
